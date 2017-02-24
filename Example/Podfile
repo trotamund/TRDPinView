@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TRDPinView_Example' do
+  pod 'TRDPinView', :path => '../'
+
+  target 'TRDPinView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
