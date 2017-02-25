@@ -95,16 +95,6 @@
     }
 }
 
-- (NSString *)rawValue {
-    
-    return [self.pinValue componentsJoinedByString:@""];
-}
-
-- (BOOL)canBecomeFirstResponder {
-    
-    return YES;
-}
-
 - (void)setPinValue:(NSMutableArray<NSString *> *)pinValue {
     
     [self.digitViews enumerateObjectsUsingBlock:^(UILabel * _Nonnull digitView, NSUInteger index, BOOL * _Nonnull stop) {
@@ -148,6 +138,17 @@
     
     _length = length;
 }
+
+- (BOOL)canBecomeFirstResponder {
+    
+    return YES;
+}
+
+- (NSString *)rawValue {
+    
+    return [self.pinValue componentsJoinedByString:@""];
+}
+
 
 #pragma mark - UITextInputTraits
 - (UIKeyboardType)keyboardType {
