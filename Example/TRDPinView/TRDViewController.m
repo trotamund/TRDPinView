@@ -21,6 +21,8 @@
 {
     [super viewDidLoad];
     
+    self.pinView.showSecureText = YES;
+    self.pinView.secureText = @"";
     self.pinView.actionBlock = ^void(NSString *value){
     
         NSLog(@"PIN: %@",value);
