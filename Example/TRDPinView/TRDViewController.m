@@ -20,8 +20,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-    [self.pinView addTarget:self action:@selector(pinFilled:) forControlEvents:UIControlEventPrimaryActionTriggered];
+    
+    self.pinView.actionBlock = ^void(NSString *value){
+    
+        NSLog(@"PIN: %@",value);
+    };
     
     [self.view addSubview:self.pinView];
     
@@ -66,11 +69,5 @@
     
     return _pinView;
 }
-
-- (void) pinFilled:(TRDPinView *)sender {
-    
-    NSLog(@"PIN: %@", [sender rawValue]);
-}
-
 
 @end
