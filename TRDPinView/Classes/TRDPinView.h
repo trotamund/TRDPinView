@@ -11,6 +11,7 @@
 @class TRDPinView;
 
 typedef void(^TRDDigitViewSettingBlock)( UILabel * _Nonnull digitView);
+typedef void(^TRDPinViewActionBlock)(NSString * _Nullable value);
 
 @interface TRDPinView : UIControl <UITextInputTraits, UIKeyInput>
 
@@ -19,6 +20,7 @@ typedef void(^TRDDigitViewSettingBlock)( UILabel * _Nonnull digitView);
 @property (nonatomic) BOOL secureText;
 
 @property (nullable, nonatomic, copy) TRDDigitViewSettingBlock settingBlock;
+@property (nullable, nonatomic, copy) TRDPinViewActionBlock actionBlock;
 
 - (nullable instancetype)initWithLength:(NSInteger) length;
 

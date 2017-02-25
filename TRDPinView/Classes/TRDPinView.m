@@ -117,6 +117,11 @@
     if (pinValue.count == self.length) {
         
         [self sendActionsForControlEvents:UIControlEventPrimaryActionTriggered];
+        
+        if (self.actionBlock) {
+            
+            self.actionBlock([self rawValue]);
+        }
     }
     
 }
