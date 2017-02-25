@@ -101,7 +101,7 @@
         
         if (index < pinValue.count) {
             
-            digitView.text = [self isSecureTextEntry] ? @"*" : pinValue[index];
+            digitView.text = [self isSecureTextEntry] ? [self secureText] : pinValue[index];
         }
         else {
             
@@ -139,6 +139,16 @@
     return _stackView;
 }
 
+- (NSString *)secureText {
+    
+    if (!_secureText) {
+        
+        _secureText = @"*";
+    }
+    
+    return _secureText;
+}
+
 - (void)setLength:(NSInteger)length {
     
     _length = length;
@@ -163,7 +173,7 @@
 
 - (BOOL)isSecureTextEntry {
     
-    return _secureText;
+    return _showSecureText;
 }
 
 #pragma mark - UIKeyInput
