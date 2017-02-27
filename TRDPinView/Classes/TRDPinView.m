@@ -10,7 +10,7 @@
 
 @interface TRDPinView ()
 
-@property (nonatomic, strong) NSMutableArray<NSString *> *pinValue;
+@property (nonatomic, strong) NSArray<NSString *> *pinValue;
 @property (nonatomic, strong) UIStackView *stackView;
 @property (nonatomic, strong) NSArray<UILabel *> *digitViews;
 @property (nonatomic) BOOL hastText;
@@ -34,8 +34,10 @@
 
 - (void)setup {
     
+    self.cleanValueAtBeginInteraction = YES;
+    
     NSMutableArray *views = [NSMutableArray arrayWithCapacity:self.length];
-    self.pinValue = [NSMutableArray arrayWithCapacity:self.length];
+    self.pinValue = @[];
     
     self.settingBlock = [self defultSettingBlock];
     
@@ -95,7 +97,7 @@
     }
 }
 
-- (void)setPinValue:(NSMutableArray<NSString *> *)pinValue {
+- (void)setPinValue:(NSArray<NSString *> *)pinValue {
     
     [self.digitViews enumerateObjectsUsingBlock:^(UILabel * _Nonnull digitView, NSUInteger index, BOOL * _Nonnull stop) {
         
