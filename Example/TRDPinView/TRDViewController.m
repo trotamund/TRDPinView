@@ -20,7 +20,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    [self.view addGestureRecognizer:tapRecognizer];
     
+//    self.pinView.cleanValueAtBeginInteraction = NO;
     self.pinView.showSecureText = YES;
     self.pinView.secureText = @"";
     self.pinView.actionBlock = ^void(NSString *value){
@@ -44,6 +47,15 @@
     [super viewDidAppear:animated];
     
     [self.pinView becomeFirstResponder];
+}
+
+- (void) tap:(UITapGestureRecognizer *)recognizer {
+    
+    if (self.pinView) {
+        
+        [self.pinView resignFirstResponder];
+    }
+    [self.view endEditing:YES];
 }
 
 - (TRDPinView *)pinView {
