@@ -18,6 +18,7 @@ typedef void(^TRDPinViewActionBlock)(NSString * _Nullable value);
 @property (nonatomic) NSInteger length;
 @property (nonatomic) UIKeyboardType keyboardType;
 @property (nonatomic) BOOL showSecureText;
+@property (nonatomic) BOOL cleanValueAtBeginInteraction;
 
 @property (nullable, nonatomic, copy) NSString *secureText;
 @property (nullable, nonatomic, copy) TRDDigitViewSettingBlock settingBlock;
@@ -27,4 +28,5 @@ typedef void(^TRDPinViewActionBlock)(NSString * _Nullable value);
 
 - (nullable NSString *)rawValue;
 
+- (void) cleanPinValue;
 @end

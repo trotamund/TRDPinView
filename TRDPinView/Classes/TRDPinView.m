@@ -156,6 +156,10 @@
 
 - (BOOL)canBecomeFirstResponder {
     
+    if (self.cleanValueAtBeginInteraction) {
+        [self cleanPinValue];
+    }
+    
     return YES;
 }
 
@@ -164,6 +168,10 @@
     return [self.pinValue componentsJoinedByString:@""];
 }
 
+- (void)cleanPinValue {
+    
+    self.pinValue = @[];
+}
 
 #pragma mark - UITextInputTraits
 - (UIKeyboardType)keyboardType {
